@@ -1,5 +1,18 @@
-<p>app works!</p>
 
-<app-config-side-bar></app-config-side-bar>
+<app-config-side-bar [user]="user" (sendUser)="receiveUser($event)" >
+  <div class="col-sm-12">
 
-<app-user-card></app-user-card>
+    <div class="float-left" >
+  <button mat-raised-button color="primary"
+  (click)="SaveListUsersInJson()">{{action}}</button>
+    </div>
+    <div class="float-right">
+  <button mat-raised-button color="primary"
+          (click)="LoadListUsersFromJson()">Load</button>
+    </div>
+  </div>
+  <app-user-card (sendUser)="receiveUserFromUserCard($event)" [listUsers]="listUsers"></app-user-card>
+
+</app-config-side-bar>
+
+

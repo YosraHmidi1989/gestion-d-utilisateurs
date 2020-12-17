@@ -1,1 +1,44 @@
-<p>user-card works!</p>
+<div class="row col-sm-12" >
+  <div class="col-sm-3" *ngFor="let user of listUsers; let index = index">
+
+
+<div class="card"  (click)="selectUser(user, index)" >
+  <div class="card-title">
+    <div class="float-right">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16" (click)="remove(user)">
+      <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+    </svg>
+    </div>
+<!--    <button mat-raised-button color="warn"-->
+<!--           class="float-right" (click)="remove(user)">Supprimer</button>-->
+  </div>
+  <div class="card-body">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom"
+             [(ngModel)]="user.nom"
+             required #nom="ngModel"
+             readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Prénom"
+             [(ngModel)]="user.prenom" required
+             #prenom="ngModel"
+            readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre d'enfant</mat-label>
+      <input matInput placeholder="Nombre d'enfant" [(ngModel)]="user.nombre_enfants" >
+    </mat-form-field>
+    <button  class="btn btn-sm btn-success float-right" (click)="plusEnfant(user)">+</button>
+    <button class="btn btn-sm btn-danger float-right" (click)="minusEnfant(user)">-</button>
+  </div>
+</div>
+
+
+</div>
+</div>
